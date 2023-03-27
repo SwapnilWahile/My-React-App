@@ -13,12 +13,25 @@ export default function Main() {
     const [msg, setMsg] = useState({namem:'', phonm:'', bill:'', pay:'', searchm:''});
     
     
-    let filteredData = data.filter(item => {if (SearchKey === "") return data 
-    if(method === 'Includes'){return (item.name.toLowerCase().includes(SearchKey.toLowerCase())) || (item.bill_amount === SearchKey) || (item.phone_number.toLowerCase().includes(SearchKey.toLowerCase()))}
-    else if(method === 'Start'){return (item.name.toLowerCase().startsWith(SearchKey.toLowerCase())) || (item.bill_amount === SearchKey) || (item.phone_number.toLowerCase().startsWith(SearchKey.toLowerCase()))}
-    else if(method === 'End'){return (item.name.toLowerCase().endsWith(SearchKey.toLowerCase())) || (item.bill_amount === SearchKey) || (item.phone_number.toLowerCase().endsWith(SearchKey.toLowerCase()))}
+    let filteredData = data.filter(item => {if (SearchKey === "") return data;
+     return search(item);
     });
   
+    function search(item){
+      if(method === 'Includes'){
+        if((item.name.toLowerCase().includes(SearchKey.toLowerCase())) || (item.bill_amount === SearchKey) || (item.phone_number.toLowerCase().includes(SearchKey.toLowerCase()))){
+          return item;
+        }
+        }
+        else if(method === 'Start'){
+          if((item.name.toLowerCase().startsWith(SearchKey.toLowerCase())) || (item.bill_amount === SearchKey) || (item.phone_number.toLowerCase().startsWith(SearchKey.toLowerCase()))){
+            return item;
+        }}
+        else if(method === 'End'){if((item.name.toLowerCase().endsWith(SearchKey.toLowerCase())) || (item.bill_amount === SearchKey) || (item.phone_number.toLowerCase().endsWith(SearchKey.toLowerCase()))){
+          return item;
+        }}
+    }
+
     function SearchMethod(e){
       setMsg({namem:'', phonm:'', bill:'', pay:'', searchm:''});
       setMthod(e.target.value);}
