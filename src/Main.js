@@ -132,7 +132,7 @@ export default function Main() {
     } 
   return (
     <div className="style">
-    <label><b>React Demo App</b></label><br/><br/>
+    <label><b>React Demo App:</b></label><br/><br/>
     <label><b>Name:</b></label><br/>
     <input id="name" className="input" name="name" value={person.name} onChange={funInput}/><label id="msg">{msg.namem}</label><br/><br/>
     <label><b>Phone Number:</b></label><br/>
